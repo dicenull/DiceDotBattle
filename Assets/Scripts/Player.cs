@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,11 +9,30 @@ public class Player : MonoBehaviour
     [SerializeField] Key backKey = Key.S;
     [SerializeField] Key leftKey = Key.A;
     [SerializeField] Key rightKey = Key.D;
+    [SerializeField] Key shotKey = Key.Space;
 
 
     void Update()
     {
         MoveFromKeyInput();
+        ShotDot();
+    }
+
+    void ShotDot()
+    {
+        if (Keyboard.current == null) return;
+        if (Keyboard.current[shotKey].wasPressedThisFrame)
+        {
+            CheckShot();
+        }
+    }
+
+    void CheckShot()
+    {
+        var dot = Instantiate(Resources.Load<GameObject>("Prefabs/Dot"), transform.position + transform.forward * 2f, Quaternion.identity);
+
+        dot.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
+        Destroy(dot, 5f);
     }
 
     void MoveFromKeyInput()

@@ -513,6 +513,7 @@ MonoBehaviour:
   backKey: 33
   leftKey: 15
   rightKey: 18
+  shotKey: 1
 --- !u!1 &649145604
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +870,7 @@ MonoBehaviour:
   backKey: 64
   leftKey: 61
   rightKey: 62
+  shotKey: 2
 --- !u!1 &1527309217
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +884,7 @@ GameObject:
   - component: {fileID: 1527309219}
   - component: {fileID: 1527309218}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Monolith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
