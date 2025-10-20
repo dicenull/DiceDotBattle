@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 516454345}
   - component: {fileID: 516454344}
   - component: {fileID: 516454343}
+  - component: {fileID: 516454347}
   m_Layer: 0
   m_Name: 1P
   m_TagString: Untagged
@@ -495,6 +496,23 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &516454347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516454342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb74b108d86a54e4189541811cff3d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  Speed: 5
+  forwardKey: 37
+  backKey: 33
+  leftKey: 15
+  rightKey: 18
 --- !u!1 &649145604
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +621,6 @@ GameObject:
   m_Component:
   - component: {fileID: 840762991}
   - component: {fileID: 840762990}
-  - component: {fileID: 840762989}
   - component: {fileID: 840762988}
   m_Layer: 0
   m_Name: 2PCamera
@@ -656,14 +673,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &840762989
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840762987}
-  m_Enabled: 1
 --- !u!20 &840762990
 Camera:
   m_ObjectHideFlags: 0
@@ -723,13 +732,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840762987}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: 5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1159324647}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1159324643
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +751,7 @@ GameObject:
   - component: {fileID: 1159324646}
   - component: {fileID: 1159324645}
   - component: {fileID: 1159324644}
+  - component: {fileID: 1159324648}
   m_Layer: 0
   m_Name: 2P
   m_TagString: Untagged
@@ -834,14 +844,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159324643}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0.5, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 840762991}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1159324648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159324643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb74b108d86a54e4189541811cff3d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  Speed: 5
+  forwardKey: 63
+  backKey: 64
+  leftKey: 61
+  rightKey: 62
 --- !u!1 &1527309217
 GameObject:
   m_ObjectHideFlags: 0
