@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private int Hp = 10;
     [SerializeField] private float Speed = 5.0f;
     [SerializeField] Key forwardKey = Key.W;
     [SerializeField] Key backKey = Key.S;
@@ -33,6 +34,17 @@ public class Player : MonoBehaviour
 
         dot.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
         Destroy(dot, 5f);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Hit();
+    }
+
+    void Hit()
+    {
+        if (Hp <= 0) return;
+        Hp--;
     }
 
     void MoveFromKeyInput()
