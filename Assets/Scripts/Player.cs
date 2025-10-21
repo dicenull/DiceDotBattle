@@ -1,10 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int Hp = 10;
+    [SerializeField] private int Hp = 1;
     [SerializeField] private float Speed = 5.0f;
     [SerializeField] Key forwardKey = Key.W;
     [SerializeField] Key backKey = Key.S;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
 
         dot.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
         Destroy(dot, 5f);
+        // TODO: ゲームオーバー処理
     }
 
     void OnCollisionEnter(Collision collision)
@@ -45,6 +47,16 @@ public class Player : MonoBehaviour
     {
         if (Hp <= 0) return;
         Hp--;
+
+        if (Hp <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        SceneManager.LoadScene("Result");
     }
 
     void MoveFromKeyInput()

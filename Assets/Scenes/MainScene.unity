@@ -508,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb74b108d86a54e4189541811cff3d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  Hp: 1
   Speed: 5
   forwardKey: 37
   backKey: 33
@@ -865,6 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb74b108d86a54e4189541811cff3d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  Hp: 1
   Speed: 5
   forwardKey: 63
   backKey: 64
