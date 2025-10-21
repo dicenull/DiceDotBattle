@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
 
         dot.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
         Destroy(dot, 5f);
-        // TODO: ゲームオーバー処理
     }
 
     void OnCollisionEnter(Collision collision)
