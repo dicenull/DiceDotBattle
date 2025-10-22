@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -13,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] Key rightKey = Key.D;
     [SerializeField] Key shotKey = Key.Space;
 
+    const float CoolDown = 2f;
+    float? lastShotTime = null;
 
     void Update()
     {
@@ -31,10 +32,23 @@ public class Player : MonoBehaviour
 
     void CheckShot()
     {
-        var dot = Instantiate(Resources.Load<GameObject>("Prefabs/Dot"), transform.position + transform.forward * 2f, Quaternion.identity);
+        if (lastShotTime.HasValue && Time.time - lastShotTime.Value < CoolDown)
+        {
+            return;
+        }
 
-        dot.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Impulse);
-        Destroy(dot, 5f);
+        lastShotTime = Time.time;
+        // 4方向に打つ
+        for (int i = 0; i < 4; i++)
+        {
+            var vector = Quaternion.Euler(0, i * 90f, 0) * transform.forward;
+            var dot = Instantiate(Resources.Load<GameObject>("Prefabs/Dot"), transform.position + vector * 2f, Quaternion.identity);
+            // あえて、打った後も動かせる
+            dot.transform.parent = transform;
+
+            dot.GetComponent<Rigidbody>().AddForce(vector * 10f, ForceMode.Impulse);
+            Destroy(dot, CoolDown);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
