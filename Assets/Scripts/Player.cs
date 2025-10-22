@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] Key leftKey = Key.A;
     [SerializeField] Key rightKey = Key.D;
     [SerializeField] Key shotKey = Key.Space;
+
+    [SerializeField] TextMeshProUGUI hpText;
 
     const float CoolDown = 2f;
     float? lastShotTime = null;
@@ -59,7 +62,9 @@ public class Player : MonoBehaviour
     void Hit()
     {
         if (Hp <= 0) return;
+
         Hp--;
+        hpText.text = $"HP: {Hp}";
 
         if (Hp <= 0)
         {
