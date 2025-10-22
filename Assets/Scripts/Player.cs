@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI hpText;
 
-    const float CoolDown = 2f;
+    const float CoolDown = 1f;
     float? lastShotTime = null;
 
     void Update()
@@ -49,12 +49,12 @@ public class Player : MonoBehaviour
             // あえて、打った後も動かせる
             dot.transform.parent = transform;
 
-            dot.GetComponent<Rigidbody>().AddForce(vector * 10f, ForceMode.Impulse);
+            dot.GetComponent<Rigidbody>().AddForce(vector * 20f, ForceMode.Impulse);
             Destroy(dot, CoolDown);
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerStay(Collider other)
     {
         Hit();
     }
