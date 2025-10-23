@@ -3,8 +3,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+public enum PlayerType
+{
+    Player1,
+    Player2
+}
+
 public class Player : MonoBehaviour
 {
+    [SerializeField] PlayerType playerType = PlayerType.Player1;
     [SerializeField] private int Hp = 1;
     [SerializeField] private float Speed = 5.0f;
     [SerializeField] Key forwardKey = Key.W;
@@ -74,6 +81,8 @@ public class Player : MonoBehaviour
 
     void GameOver()
     {
+        GameData.Instance?.SetLoser(playerType);
+
         SceneManager.LoadScene("Result");
     }
 
