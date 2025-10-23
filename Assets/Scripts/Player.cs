@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int ballSize = 0;
 
     [SerializeField] TextMeshProUGUI hpText;
+    [SerializeField] TextMeshProUGUI ballSizeText;
 
     const float CoolDown = 1f;
     float? lastShotTime = null;
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
     {
         Destroy(collider.gameObject);
         ballSize++;
+        ballSizeText.text = $"ShotSize: {ballSize}";
     }
 
     void Hit()
