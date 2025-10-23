@@ -92,39 +92,33 @@ public class Player : MonoBehaviour
         if (keyboard == null) return;
         if (keyboard[leftKey].isPressed)
         {
-            MoveLeft();
+            Move(Vector3.left);
         }
         else if (keyboard[rightKey].isPressed)
         {
-            MoveRight();
+            Move(Vector3.right);
         }
         else if (keyboard[forwardKey].isPressed)
         {
-            MoveForward();
+            Move(Vector3.forward);
         }
         else if (keyboard[backKey].isPressed)
         {
-            MoveBack();
+            Move(Vector3.back);
         }
     }
 
-    void MoveLeft()
+    void Move(Vector3 vector)
     {
-        transform.Translate(Vector3.left * Speed * Time.deltaTime);
-    }
+        var movement = vector * Speed * Time.deltaTime;
+        var newPosition = transform.position + movement;
 
-    void MoveRight()
-    {
-        transform.Translate(Vector3.right * Speed * Time.deltaTime);
-    }
+        if (newPosition.magnitude > 14f)
+        {
+            return;
+        }
 
-    void MoveForward()
-    {
-        transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-    }
-
-    void MoveBack()
-    {
-        transform.Translate(Vector3.back * Speed * Time.deltaTime);
+        transform.Translate(movement);
     }
 }
+
