@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] Key leftKey = Key.A;
     [SerializeField] Key rightKey = Key.D;
     [SerializeField] Key shotKey = Key.Space;
+    [SerializeField] private int ballSize = 0;
 
     [SerializeField] TextMeshProUGUI hpText;
 
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
         {
             var vector = Quaternion.Euler(0, i * 90f, 0) * transform.forward;
             var dot = Instantiate(Resources.Load<GameObject>("Prefabs/Dot"), transform.position + vector * 2f, Quaternion.identity);
+            dot.transform.localScale = Vector3.one * 0.3f + Vector3.one * ballSize * 0.1f;
             // あえて、打った後も動かせる
             dot.transform.parent = transform;
 
@@ -63,7 +65,22 @@ public class Player : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        Hit();
+        if (other.tag == "Ball")
+        {
+            HitBall(other);
+        }
+
+        if (other.tag == "Dot")
+        {
+            Hit();
+        }
+    }
+
+
+    void HitBall(Collider collider)
+    {
+        Destroy(collider.gameObject);
+        ballSize++;
     }
 
     void Hit()
@@ -113,7 +130,7 @@ public class Player : MonoBehaviour
         var movement = vector * Speed * Time.deltaTime;
         var newPosition = transform.position + movement;
 
-        if (newPosition.magnitude > 14f)
+        if (newPosition.magnitude > GameData.FieldRadius)
         {
             return;
         }

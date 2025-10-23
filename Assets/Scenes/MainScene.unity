@@ -609,6 +609,51 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &401407040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401407042}
+  - component: {fileID: 401407041}
+  m_Layer: 0
+  m_Name: BallManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &401407041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401407040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90b03d39d793420abaceb64e8df0fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  ballPrefab: {fileID: 5619464327589460753, guid: 732d7edbcac0f4b209b04bbb30ad6975, type: 3}
+--- !u!4 &401407042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401407040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +857,7 @@ MonoBehaviour:
   leftKey: 15
   rightKey: 18
   shotKey: 1
+  ballSize: 1
   hpText: {fileID: 1188764538}
 --- !u!1 &649145604
 GameObject:
@@ -1172,6 +1218,7 @@ MonoBehaviour:
   leftKey: 61
   rightKey: 62
   shotKey: 2
+  ballSize: 1
   hpText: {fileID: 298996063}
 --- !u!65 &1159324649
 BoxCollider:
@@ -2003,3 +2050,4 @@ SceneRoots:
   - {fileID: 186517541}
   - {fileID: 1413333702}
   - {fileID: 1570434200}
+  - {fileID: 401407042}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameData : MonoBehaviour
 {
+    public static float FieldRadius = 14f;
     public static GameData Instance { get; private set; }
 
     public bool IsWin1P { get; private set; } = false;
