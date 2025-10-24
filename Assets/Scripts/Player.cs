@@ -129,15 +129,15 @@ public class Player : MonoBehaviour
 
     void Move(Vector3 vector)
     {
-        var movement = vector * Speed * Time.deltaTime;
-        var newPosition = transform.position + movement;
+        var movement = Speed * Time.deltaTime * vector;
+        var newPosition = transform.position + transform.rotation * movement;
 
         if (newPosition.magnitude > GameData.FieldRadius)
         {
             return;
         }
 
-        transform.Translate(movement);
+        transform.position = newPosition;
     }
 }
 
